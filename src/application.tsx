@@ -4,6 +4,9 @@ import Menu from "@material-ui/core/Menu";
 import Toolbar from "@material-ui/core/Toolbar";
 import MenuItem from "@material-ui/core/MenuItem";
 import IconButton from "@material-ui/core/IconButton";
+import MenuIcon from '@material-ui/icons/Menu';
+import Paper from '@material-ui/core/Paper';
+import Typography from '@material-ui/core/Typography';
 
 export class ReactApplication extends React.Component {
   public render(): JSX.Element {
@@ -11,7 +14,9 @@ export class ReactApplication extends React.Component {
       <div>
         <AppBar color="primary" position="static">
           <Toolbar>
-            <IconButton>?</IconButton>
+            <IconButton>
+              <MenuIcon />
+            </IconButton>
             <Menu open={false}>
               <MenuItem>dsa</MenuItem>
               <MenuItem>dsa 2</MenuItem>
@@ -19,10 +24,11 @@ export class ReactApplication extends React.Component {
             </Menu>
           </Toolbar>
         </AppBar>
-        <div>
-          <input />
-        </div>
-        <div>Footer</div>
+        <Paper elevation={1} style={{ padding: 10, maxWidth: "90%", margin: "10px auto" }}>
+          <Typography variant="h5" component="h3">
+            Welcome :)
+          </Typography>
+        </Paper>
       </div>
     );
   }
