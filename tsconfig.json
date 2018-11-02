@@ -1,0 +1,34 @@
+{
+    "compilerOptions": {
+      "sourceMap": true,
+      "target": "es5",
+      "jsx": "react",
+      "module": "commonjs",
+      "moduleResolution": "node",
+      "emitDecoratorMetadata": true,
+      "experimentalDecorators": true,
+      "declaration": false,
+      "noImplicitAny": false,
+      "noImplicitReturns": false,
+      "removeComments": true,
+      "strictNullChecks": true,
+      "outDir": "build",
+      "baseUrl": "./",
+    //   "paths": {
+    //     "bx-ui" : [ "./src/ui/material/index.ts" ],
+    //     "bx-utils" : [ "./src/utils/index.ts" ],
+    //     "bx-services": [ "./src/services/index.ts" ],
+    //     "bx-store": [ "./src/store/index.ts" ]
+    //   },
+      "lib": [
+        "es6",
+        "es7",
+        "dom"
+      ]
+    },
+    "exclude": [
+      "dist",
+      "build",
+      "node_modules"
+    ]
+  }
