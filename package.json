@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "dev": "node ./bin/dev.server.js",
+    "build": "webpack-cli ./src/index.tsx --mode=development --config=./webpack.config.js",
     "dev:start": "webpack-dev-server --bonjour --color --history-api-fallback --https --port 1712"
   },
   "repository": "git+https://github.com/arborQ/ReactFrontEnd.git",
@@ -15,6 +16,7 @@
   },
   "homepage": "https://github.com/arborQ/ReactFrontEnd#readme",
   "dependencies": {
+    "@material-ui/core": "^3.3.2",
     "@types/react": "^16.4.18",
     "@types/react-dom": "^16.0.9",
     "awesome-typescript-loader": "^5.2.1",
