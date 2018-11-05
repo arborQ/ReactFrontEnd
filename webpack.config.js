@@ -103,7 +103,7 @@ var config = {
       template: './src/index.pug',
       filename: 'index.html',
       title: 'Webpack + Typescript',
-      favicon: "icon.ico"
+      favicon: "content/icon.ico",
     }),
     // new CircularDependencyPlugin({
     //   exclude: /a\.js|node_modules/,
