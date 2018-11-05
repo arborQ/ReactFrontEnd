@@ -55,7 +55,12 @@ var config = {
       use: 'awesome-typescript-loader'
     },
     { test: /\.png$/, loader: 'file-loader' },
-    { test: /\.pug$/, loader: 'pug-loader' }]
+    { test: /\.pug$/, loader: 'pug-loader' },
+    {
+      test: /\.css$/,
+      use: [ 'style-loader', 'css-loader' ]
+    }
+  ]
   },
   optimization: {
     runtimeChunk: 'single',
