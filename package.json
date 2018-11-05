@@ -5,8 +5,9 @@
   "main": "index.js",
   "scripts": {
     "dev": "node ./bin/dev.server.js",
-    "build": "webpack-cli ./src/index.tsx --mode=development --config=./webpack.config.js",
-    "dev:start": "webpack-dev-server --bonjour --color --history-api-fallback --port 1712"
+    "build": "webpack-cli ./src/index.tsx --mode=production --config=./webpack.config.js",
+    "dev:start": "webpack-dev-server --bonjour --color --history-api-fallback --port 1712",
+    "prod:start": "webpack-dev-server --bonjour --color --history-api-fallback --mode=production --port 1713"
   },
   "repository": "git+https://github.com/arborQ/ReactFrontEnd.git",
   "author": "Lukasz Wojcik (PGS Software) <lwojcik@pgs-soft.com>",

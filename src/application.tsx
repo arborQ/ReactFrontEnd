@@ -23,8 +23,9 @@ export class ReactApplication extends React.Component {
           <Layout.Sider theme={"light"} breakpoint={"sm"}>
             <Menu>
               <Menu.ItemGroup key="g1" title="Unauthorized">
-                <Menu.Item key="login">Log In</Menu.Item>
-                <Menu.Item key="create">Create</Menu.Item>
+                <Menu.Item key="login"><a href="/login">Log In</a></Menu.Item>
+                <Menu.Item key="create"><a href="/create">Create</a></Menu.Item>
+                <Menu.Item key="about"><a href="/about">About</a></Menu.Item>
               </Menu.ItemGroup>
             </Menu>
           </Layout.Sider>
