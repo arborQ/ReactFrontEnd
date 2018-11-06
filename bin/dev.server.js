@@ -18,16 +18,17 @@ var proxy = {
   secure: false
 };
 
+// --bonjour --color --history-api-fallback --mode=development --port 1712
+
 var server = new webpackDevServer(compiler, {
-  quiet: false,
-  stats: { colors: true, chunks: false },
-  hot: true,
+  bonjour: true,
   historyApiFallback: true,
+  inline: true,
   proxy: {
     "/api": proxy
   }
 });
 
-server.listen(8080);
+server.listen(1712);
 
-console.log("Webpack dev server listen: http://localhost:8080");
+console.log("Webpack dev server listen: http://localhost:1712");

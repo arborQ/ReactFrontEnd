@@ -6,8 +6,7 @@
   "scripts": {
     "dev": "node ./bin/dev.server.js",
     "build": "webpack-cli ./src/index.tsx --mode=production --config=./webpack.config.js",
-    "dev:start": "webpack-dev-server --bonjour --color --history-api-fallback --mode=development --port 1712",
-    "prod:start": "webpack-dev-server --bonjour --color --history-api-fallback --mode=production --port 1713"
+    "dev:start": "node ./bin/dev.server.js"
   },
   "repository": "git+https://github.com/arborQ/ReactFrontEnd.git",
   "author": "Lukasz Wojcik (PGS Software) <lwojcik@pgs-soft.com>",
@@ -23,6 +22,7 @@
     "@types/react-router-dom": "^4.3.1",
     "antd": "^3.10.4",
     "awesome-typescript-loader": "^5.2.1",
+    "babel-plugin-import": "^1.11.0",
     "css-loader": "^1.0.1",
     "file-loader": "^2.0.0",
     "html-webpack-plugin": "^3.2.0",

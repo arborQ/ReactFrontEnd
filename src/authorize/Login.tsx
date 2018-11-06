@@ -80,7 +80,7 @@ export default class Login extends React.PureComponent<RouteComponentProps, ILog
 
     this.setState({ ...this.state, loading: true });
 
-    post("/account/authorize/", { login: this.state.login, passowrd: this.state.password })
+    post("/api/account/authorize/", { Login: this.state.login, Passowrd: this.state.password })
       .then(response => {
         this.setState({ ...this.state, loading: false });
       }).catch(() => {
