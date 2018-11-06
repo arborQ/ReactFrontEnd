@@ -35,6 +35,7 @@ var config = {
     mainFields: ['main'],
     alias: {
       "bx-utils": path.resolve(__dirname, './src/utils'),
+      "bx-services": path.resolve(__dirname, './src/services'),
     }
   },
   mode: 'development',
