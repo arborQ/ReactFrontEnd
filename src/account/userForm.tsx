@@ -14,7 +14,7 @@ export default function (props: IUserFormProps) {
                     placeholder="Email address"
                     value={props.userData.email}
                     onChange={e => {
-                        this.props.updateUserData({ email: e.target.value });
+                        props.updateUserData({ email: e.target.value });
                     }}
                 />
             </Form.Item>
@@ -23,7 +23,7 @@ export default function (props: IUserFormProps) {
                     placeholder="Login"
                     value={props.userData.login}
                     onChange={e => {
-                        this.props.updateUserData({ login: e.target.value });
+                        props.updateUserData({ login: e.target.value });
                     }}
                 />
             </Form.Item>
@@ -32,7 +32,7 @@ export default function (props: IUserFormProps) {
                     placeholder="First Name"
                     value={props.userData.firstName}
                     onChange={e => {
-                        this.props.updateUserData({ firstName: e.target.value });
+                        props.updateUserData({ firstName: e.target.value });
                     }}
                 />
             </Form.Item>
@@ -41,13 +41,13 @@ export default function (props: IUserFormProps) {
                     placeholder="Last Name"
                     value={props.userData.lastName}
                     onChange={e => {
-                        this.props.updateUserData({ lastName: e.target.value });
+                        props.updateUserData({ lastName: e.target.value });
                     }}
                 />
             </Form.Item>
             <Form.Item>
                 <Switch checkedChildren="Active" unCheckedChildren="Not Active" defaultChecked={props.userData.isActive} onChange={(isActive) => {
-                    this.props.updateUserData({
+                    props.updateUserData({
                         isActive
                     });
                 }} />
