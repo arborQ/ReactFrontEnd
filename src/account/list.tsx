@@ -11,7 +11,7 @@ interface IUserListState {
   list: Areas.Account.IUser[];
 }
 
-export default class UserList extends React.Component<
+export default class UserList extends React.PureComponent<
   RouteComponentProps,
   IUserListState
 > {
@@ -35,10 +35,26 @@ export default class UserList extends React.Component<
       title: "",
       key: "action",
       render: (text, record: Areas.Account.IUser) => {
-          return <Button onClick={() => { this.props.history.push(`/account/list/edit/${record.id}`) }}>Edit</Button>
+        return (
+          <Button
+            onClick={() => {
+              this.props.history.push(`/account/list/edit/${record.id}`);
+            }}
+          >
+            Edit
+          </Button>
+        );
       }
     }
   ];
+  componentWillReceiveProps(n: RouteComponentProps) {
+    const oldPath = this.props.location.pathname;
+    const newPath = n.location.pathname;
+
+    if (newPath !== oldPath && oldPath.indexOf(newPath) === 0) {
+      this.componentDidMount();
+    }
+  }
   componentWillMount(): void {
     this.setState({ loading: false, list: [] });
   }
