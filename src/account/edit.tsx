@@ -1,5 +1,7 @@
 import * as React from "react";
 import { Drawer, Skeleton, Form, Input, Button, Popconfirm, Switch } from "antd";
+import UserForm from "./userForm";
+
 import { RouteComponentProps } from "react-router";
 import { getUser, editUser } from "bx-services/users";
 interface IEditUserState {
@@ -11,7 +13,7 @@ interface IEditUserState {
 export default class Create extends React.PureComponent<
   RouteComponentProps<{ id: string }>,
   IEditUserState
-> {
+  > {
   componentWillMount(): void {
     this.setState({
       loading: false,
@@ -48,49 +50,7 @@ export default class Create extends React.PureComponent<
           >
             {this.state.userData === null ? null : (
               <Form onSubmit={this.submitForm.bind(this)}>
-                <Form.Item>
-                  <Input
-                    placeholder="Email address"
-                    value={this.state.userData.email}
-                    onChange={e => {
-                      this.updateUserData({ email: e.target.value });
-                    }}
-                  />
-                </Form.Item>
-                <Form.Item>
-                  <Input
-                    placeholder="Login"
-                    value={this.state.userData.login}
-                    onChange={e => {
-                      this.updateUserData({ login: e.target.value });
-                    }}
-                  />
-                </Form.Item>
-                <Form.Item>
-                  <Input
-                    placeholder="First Name"
-                    value={this.state.userData.firstName}
-                    onChange={e => {
-                      this.updateUserData({ firstName: e.target.value });
-                    }}
-                  />
-                </Form.Item>
-                <Form.Item>
-                  <Input
-                    placeholder="Last Name"
-                    value={this.state.userData.lastName}
-                    onChange={e => {
-                      this.updateUserData({ lastName: e.target.value });
-                    }}
-                  />
-                </Form.Item>
-                <Form.Item>
-                <Switch checkedChildren="Active" unCheckedChildren="Not Active" defaultChecked={this.state.userData.isActive} onChange={(isActive) => {
-                  this.updateUserData({
-                    isActive
-                  });
-                }} />
-                </Form.Item>
+                <UserForm userData={this.state.userData} updateUserData={this.updateUserData.bind(this)} />
                 <Button.Group>
                   <Button htmlType="submit" type="primary">
                     Save
