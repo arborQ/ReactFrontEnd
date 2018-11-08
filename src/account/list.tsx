@@ -1,5 +1,5 @@
 import * as React from "react";
-import { Card, Table, Button } from "antd";
+import { Card, Table, Button, Input } from "antd";
 import { RouteComponentProps } from "react-router";
 import { Route } from "react-router-dom";
 import { loadUsers } from "bx-services/users";
@@ -29,7 +29,14 @@ export default class UserList extends React.PureComponent<
     {
       title: "Login",
       dataIndex: "login",
-      key: "login"
+      key: "login",
+      filterDropdown: ({ setSelectedKeys, selectedKeys, confirm, clearFilters }) => {
+        return (
+         <div className="custom-filter-dropdown">
+          <Input ref={item => { if(item !== null) { item.focus(); } }} placeholder="Search by login" onPressEnter={() => {confirm();}} />
+         </div>
+        );
+      }
     },
     {
       title: "",

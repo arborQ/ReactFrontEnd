@@ -1,5 +1,5 @@
 import * as React from "react";
-import { Drawer, Skeleton, Form, Input, Button, Popconfirm } from "antd";
+import { Drawer, Skeleton, Form, Input, Button, Popconfirm, Switch } from "antd";
 import { RouteComponentProps } from "react-router";
 import { getUser, editUser } from "bx-services/users";
 interface IEditUserState {
@@ -83,6 +83,13 @@ export default class Create extends React.PureComponent<
                       this.updateUserData({ lastName: e.target.value });
                     }}
                   />
+                </Form.Item>
+                <Form.Item>
+                <Switch checkedChildren="Active" unCheckedChildren="Not Active" defaultChecked={this.state.userData.isActive} onChange={(isActive) => {
+                  this.updateUserData({
+                    isActive
+                  });
+                }} />
                 </Form.Item>
                 <Button.Group>
                   <Button htmlType="submit" type="primary">
