@@ -10,7 +10,7 @@ interface IEditUserState {
   userData: Areas.Account.IUser | null;
 }
 
-export default class Create extends React.PureComponent<
+export default class EditUser extends React.PureComponent<
   RouteComponentProps<{ id: string }>,
   IEditUserState
   > {

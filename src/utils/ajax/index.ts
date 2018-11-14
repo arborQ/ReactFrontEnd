@@ -29,6 +29,19 @@ export function post<T>(url: string, data: any): Promise<T> {
   return handleAjax(fetch(request));
 }
 
+export function update<T>(url: string, data: any): Promise<T> {
+  const request = new Request(url, {
+    body: !!data ? JSON.stringify(data) : null,
+    headers: new Headers({
+      "Accept": "application/json",
+      "Content-Type": "application/json"
+    }),
+    method: "PUT"
+  });
+
+  return handleAjax(fetch(request));
+}
+
 export function remove<T>(url: string, data: any): Promise<T> {
   const request = new Request(url, {
     body: !!data ? JSON.stringify(data) : null,
