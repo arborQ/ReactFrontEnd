@@ -25,6 +25,11 @@ export default class EditUser extends React.PureComponent<
       ...this.state,
       userData: null
     });
+
+    if (this.props.match === null) {
+      return;
+    }
+
     getUser(+this.props.match.params.id).then(userData => {
       this.setState({
         ...this.state,

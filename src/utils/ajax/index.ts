@@ -16,7 +16,7 @@ function handleAjax<T>(ajax: Promise<Response>): Promise<T> {
     });
 }
 
-export function post<T>(url: string, data: any): Promise<T> {
+export function post<T>(url: string, data?: any): Promise<T> {
   const request = new Request(url, {
     body: !!data ? JSON.stringify(data) : null,
     headers: new Headers({
