@@ -1,11 +1,16 @@
 import * as React from "react";
+import { lazy, Suspense } from "react";
 import { Layout, Menu, Icon } from "antd";
 import { Route, Link } from "react-router-dom";
-import LoginComponent from "./account/login";
-import CreateUser from "./account/create";
+// import LoginComponent from "./account/login";
+// import CreateUser from "./account/create";
 import UserList from "./account/list";
 import { withRouter, RouteComponentProps } from "react-router";
 import "antd/dist/antd.css";
+
+const LoginComponent = lazy(() => import("./account/login"));
+const CreateUser =  lazy(() => import("./account/create"));
+const LazyComponent =  lazy(() => import("./lazy/lazy.index"));
 
 class ReactApplication extends React.PureComponent<RouteComponentProps> {
   render(): JSX.Element {
@@ -36,13 +41,22 @@ class ReactApplication extends React.PureComponent<RouteComponentProps> {
                     User list
                   </Link>
                 </Menu.Item>
+                <Menu.Item key="/react16">
+                  <Link to="/react16">
+                    <Icon type="bulb" />
+                    React 16
+                  </Link>
+                </Menu.Item>
               </Menu.ItemGroup>
             </Menu>
           </Layout.Sider>
           <Layout.Content style={{ padding: 10 }}>
-            <Route path="/account/login" component={LoginComponent} />
-            <Route path="/account/list/create" component={CreateUser} />
-            <Route path="/account/list" component={UserList} />
+            <Suspense fallback={<div>Loading...</div>}>
+              <Route path="/account/login" component={LoginComponent} />
+              <Route path="/account/list/create" component={CreateUser} />
+              <Route path="/account/list" component={UserList} />
+              <Route path="/react16" component={LazyComponent} />
+            </Suspense>
           </Layout.Content>
         </Layout>
       </Layout>
